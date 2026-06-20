@@ -1,0 +1,8 @@
+FROM node:latest					
+WORKDIR /app	
+COPY . .
+COPY app/package*.json .
+RUN npm install
+ENV DATABASE_URL=postgres://admin:secret@db		
+EXPOSE 3000
+CMD ["node", "server.js"]				
